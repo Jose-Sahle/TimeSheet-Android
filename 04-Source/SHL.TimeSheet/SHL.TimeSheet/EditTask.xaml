@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behavior="clr-namespace:SHL.TimeSheet"
+             mc:Ignorable="d"
+             x:Class="SHL.TimeSheet.EditTask">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="Undo_32.png" Clicked="cmdBack_Click" />
+        <ToolbarItem IconImageSource="Check_32.png" Clicked="cmdFinish_Click" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView >
+            <StackLayout >
+                <Grid Padding="5,10,5,10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition	Height="55"/>
+                        <RowDefinition	Height="Auto"/>
+                        <RowDefinition	Height="*"/>
+                        <RowDefinition	Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Frame	Grid.Row="0" Grid.Column="0" HasShadow="True" Padding="5,5,5,5">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions >
+                                    <RowDefinition	Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition	Width="Auto"/>
+                                    <ColumnDefinition	Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Picker x:Name="pckProject" Title="Selecione o Projeto" ItemDisplayBinding="{Binding NAME}" SelectedIndexChanged="Picker_OnSelectedIndexChanged" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame	Grid.Row="1" Grid.Column="0" HasShadow="True" Padding="5,5,5,5">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions >
+                                    <RowDefinition	Height="55"/>
+                                    <RowDefinition	Height="55"/>
+                                    <RowDefinition	Height="55"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition	Width="100"/>
+                                    <ColumnDefinition	Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="End" Text="Índice da Atividade"></Label>
+                                <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="End" Text="Início atividade"></Label>
+                                <Label Grid.Row="2" Grid.Column="0" HorizontalOptions="End" Text="Término atividade"></Label>
+
+                                <Entry x:Name="txtIndieTask" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand">
+                                </Entry>
+                                <Entry x:Name="txtStartTask" Grid.Row="1" Grid.Column="1" Keyboard="Numeric" HorizontalOptions="FillAndExpand">
+                                    <Entry.Behaviors>
+                                        <behavior:MaskedBehavior Mask="XX:XX" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                                <Entry x:Name="txtEndTask" Grid.Row="2" Grid.Column="1" Keyboard="Numeric" HorizontalOptions="FillAndExpand">
+                                    <Entry.Behaviors>
+                                        <behavior:MaskedBehavior Mask="XX:XX" />
+                                    </Entry.Behaviors>
+                                </Entry>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame	Grid.Row="2" Grid.Column="0" HasShadow="True" Padding="5,5,5,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions >
+                                    <RowDefinition	Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition	Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Editor x:Name="txtDescription"  BackgroundColor="Gray" Grid.Row="0" Grid.Column="0" HorizontalOptions="Fill" VerticalOptions="Fill" ></Editor>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--<BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="4"  BackgroundColor="Blue" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+                    <BoxView Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1"  BackgroundColor="Red" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                    <BoxView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1"  BackgroundColor="Red" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                    <BoxView Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1"  BackgroundColor="Red" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                    <BoxView Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1"  BackgroundColor="Red" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>-->
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

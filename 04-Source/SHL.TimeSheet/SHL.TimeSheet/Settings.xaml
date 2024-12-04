@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behavior="clr-namespace:SHL.TimeSheet"
+             mc:Ignorable="d"
+             x:Class="SHL.TimeSheet.Settings"
+             Title="Settings">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="pencil_32.png" Clicked="cmdEditSettings_Click" />
+        <ToolbarItem IconImageSource="Add_32.png" Clicked="cmdAddSettings_Click" />
+        <ToolbarItem IconImageSource="Check_32.png" Clicked="cmdFinish_Click" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <ListView x:Name="lstSettings"
+              Margin="20"
+              ItemSelected="OnListViewItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding KEY}"
+                          Detail="{Binding VALUE}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
